@@ -20,7 +20,7 @@ const refresh = require("./src/routes/refresh");
 const connectrouter = require("./src/routes/connections");
 const PORT = process.env.PORT;
 app.use(cors({
-  origin: "https://dev-tinder-frontend-27ke.onrender.com" // Replace with your React frontend URL
+  origin: "https://dev-tinder-frontend-27ke.onrender.com", // Replace with your React frontend URL
   credentials: true
 }));
 app.use(express.json());
