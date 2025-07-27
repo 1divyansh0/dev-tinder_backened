@@ -20,7 +20,7 @@ const refresh = require("./src/routes/refresh");
 const connectrouter = require("./src/routes/connections");
 const PORT = process.env.PORT;
 app.use(cors({
-  origin: ["http://localhost:5173","https://dev-tinder-backened-z21o.vercel.app/"], // Replace with your React frontend URL
+  origin: ["http://localhost:5173","https://dev-tinder-frontend-hazel.vercel.app/"], // Replace with your React frontend URL
   credentials: true
 }));
 app.use(express.json());
