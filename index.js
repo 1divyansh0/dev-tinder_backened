@@ -1,23 +1,23 @@
 const express = require("express");
 const app = express();
-const connect = require("./config/database");
+const connect = require("./src/config/database");
 const bcrypt = require("bcrypt");
-const {validate} = require("../utils/validations")
+const {validate} = require("./utils/validations")
 const jwt = require("jsonwebtoken");
-const {auth} = require("../middleware/auth");
-const user = require("./Models/user");
+const {auth} = require("./middleware/auth");
+const user = require("./src/Models/user");
 const cookies = require("cookie-parser");
 const { isAbaRouting } = require("validator");
-const authrouters = require("./routes/auth2");
-const profilerouter = require("./routes/profile")
-const reqrouters = require("./routes/request")
-const reviewrequest = require("./routes/review");
-const reqrecive = require("./routes/reqrecieved");
-const getrouter = require("./routes/get");
-const feedrouter = require("./routes/feed");
+const authrouters = require("./src/routes/auth2");
+const profilerouter = require("./src/routes/profile")
+const reqrouters = require("./src/routes/request")
+const reviewrequest = require("./src/routes/review");
+const reqrecive = require("./src/routes/reqrecieved");
+const getrouter = require("./src/routes/get");
+const feedrouter = require("./src/routes/feed");
 const cors = require("cors");
-const refresh = require("./routes/refresh");
-const connectrouter = require("./routes/connections");
+const refresh = require("./src/routes/refresh");
+const connectrouter = require("./src/routes/connections");
 const PORT = process.env.PORT;
 app.use(cors({
   origin: "http://localhost:5173", // Replace with your React frontend URL
