@@ -18,7 +18,7 @@ const feedrouter = require("./routes/feed");
 const cors = require("cors");
 const refresh = require("./routes/refresh");
 const connectrouter = require("./routes/connections");
-
+const PORT = process.env.PORT;
 app.use(cors({
   origin: "http://localhost:5173", // Replace with your React frontend URL
   credentials: true
@@ -41,7 +41,7 @@ app.use("/",connectrouter)
 
 connect().then(()=>{
   console.log("Database Connection Established!");
-  app.listen(300,()=>{
+  app.listen(PORT,()=>{
     console.log("hy! server is created!")
 })
 }).then((err)=>{
