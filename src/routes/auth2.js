@@ -84,7 +84,7 @@ authrouters.post("/logout",(req,res)=>{
   res.cookie("token",null,{
   httpOnly: true,
   secure: true,
-  sameSite: "None"
+  sameSite: "None",
     expires: new Date(Date.now())
   })
   res.send("User Logout!")
