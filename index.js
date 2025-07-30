@@ -21,7 +21,7 @@ const connectrouter = require("./src/routes/connections");
 const PORT = process.env.PORT;
 app.use(cors({
    origin: "https://dev-tinder-frontend-27ke.onrender.com",
-   credential:true
+   credentials:true
 }))
 app.use(express.json());
 app.use(cookies());
