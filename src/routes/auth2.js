@@ -20,9 +20,9 @@ authrouters.post("/login" , async(req,res)=>{
 
     if(login){
       res.cookie("token",token, {
-      httpOnly: true,
-      secure: false, // set true for HTTPS
-      sameSite: "Lax"
+    httpOnly: true,
+    secure: true,          // ← change this
+    sameSite: "None"       
     });
       res.send(data);
     }
@@ -65,7 +65,13 @@ authrouters.post("/signup",async(req,res)=>{
     const saveddata = await dummy.save();
     const token = jwt.sign({_id: saveddata._id},"devtinder@12")
     
-    res.cookie("token",token)
+    res.cookie("token",token,{
+  httpOnly: true,
+  secure: true,
+  sameSite: "None"
+
+    }
+      )
 
     res.send(saveddata)
   }
@@ -76,6 +82,9 @@ authrouters.post("/signup",async(req,res)=>{
 
 authrouters.post("/logout",(req,res)=>{
   res.cookie("token",null,{
+  httpOnly: true,
+  secure: true,
+  sameSite: "None"
     expires: new Date(Date.now())
   })
   res.send("User Logout!")
