@@ -19,7 +19,11 @@ authrouters.post("/login" , async(req,res)=>{
     const token = jwt.sign({_id: data._id},"devtinder@12")
 
     if(login){
-      res.cookie("token",token);
+      res.cookie("token",token, {
+      httpOnly: true,
+      secure: false, // set true for HTTPS
+      sameSite: "Lax"
+    });
       res.send(data);
     }
     else{
